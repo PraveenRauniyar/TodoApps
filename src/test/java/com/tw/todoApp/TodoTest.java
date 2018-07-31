@@ -1,4 +1,4 @@
-package com.example.todoApp;
+package com.tw.todoApp;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -19,7 +19,7 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
-public class TodoRepositoryTest {
+public class TodoTest {
 
     @Autowired
     private TestEntityManager entityManager;
@@ -31,8 +31,8 @@ public class TodoRepositoryTest {
     public void shouldAddTodoInRepository() {
         Todo todo = new Todo("tea", "milk", "hotwater");
         Todo addedTodo = this.entityManager.persistAndFlush(todo);
-        assertThat(addedTodo.getTodoItem(), is("tea"));
-        assertThat(addedTodo.getTodoTitle(), is("milk"));
+        assertThat(addedTodo.getTodoItem(), is("milk"));
+        assertThat(addedTodo.getTodoTitle(), is("tea"));
         assertThat(addedTodo.getComment(), is("hotwater"));
     }
 
